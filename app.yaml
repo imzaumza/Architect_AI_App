@@ -1,1 +1,5 @@
 runtime: python38
+
+libraries:
+- name: ssl
+  version: latest
