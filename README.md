@@ -2,7 +2,7 @@
 - AI tools for Architect using Dalle API and Flask
 * This app is currently in development
 
-##### Please note: This link below is for ascertain the feasibility of the app deployment in Google Cloud, in preparation for the final production.
+#### Please note: This link below is for ascertain the feasibility of the app deployment in Google Cloud, in preparation for the final production.
 https://architect-ai.ey.r.appspot.com/
 
 ## Abstract
