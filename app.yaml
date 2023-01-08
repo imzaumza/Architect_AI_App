@@ -1,13 +1,20 @@
+
+#  This yaml code below is a configuration file for a Python web application. 
+#  It specifies that the application should use Python 3.9, API version 1, and be thread-safe. 
+#  It also specifies two handlers: one for static files located in the "static" directory, and one for all other requests which should be handled by the "main.app" script. 
+#  Finally, it specifies that the application should use the latest version of the SSL library.
+
+
 runtime: python39
+api_version: 1
 threadsafe: true
 
 handlers:
-- url: /templates
-  static_dir: static/css
-  templates_dir: templates/
-- url: http://127.0.0.1:5000/
+- url: /static
+  static_dir: static
+- url: /.*
   script: main.app
-
+  
 libraries:
-- name: ssl
-  version: "2.7.11"
+  - name: ssl
+    version: latest
