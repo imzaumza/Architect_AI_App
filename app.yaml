@@ -1,5 +1,13 @@
-runtime: python38
+runtime: python39
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /static
+  static_dir: static
+- url: /.*
+  script: main.app
 
 libraries:
 - name: ssl
-  version: latest
+  version: "2.7.11"
