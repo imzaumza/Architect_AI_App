@@ -1,11 +1,11 @@
 runtime: python39
-api_version: 1
 threadsafe: true
 
 handlers:
-- url: /static
-  static_dir: static
-- url: /.*
+- url: /templates
+  static_dir: static/css
+  templates_dir: templates/
+- url: http://127.0.0.1:5000/
   script: main.app
 
 libraries:
