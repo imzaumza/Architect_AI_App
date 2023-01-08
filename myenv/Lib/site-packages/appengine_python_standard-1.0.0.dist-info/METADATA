@@ -1,0 +1,100 @@
+Metadata-Version: 2.1
+Name: appengine-python-standard
+Version: 1.0.0
+Summary: Google App Engine services SDK for Python 3
+Home-page: https://github.com/GoogleCloudPlatform/appengine-python-standard
+Author: Google LLC
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: attrs (>=21.2.0)
+Requires-Dist: frozendict (>=1.2)
+Requires-Dist: google-auth (>=1.31.0)
+Requires-Dist: mock (>=4.0.3)
+Requires-Dist: Pillow (>=8.3.1)
+Requires-Dist: protobuf (>=3.19.0)
+Requires-Dist: pytz (>=2021.1)
+Requires-Dist: requests (>=2.25.1)
+Requires-Dist: ruamel.yaml (>=0.17.7)
+Requires-Dist: six (>=1.15.0)
+Requires-Dist: urllib3 (<2,>=1.26.2)
+
+# Google App Engine services SDK for Python 3
+
+This is a release of the App Engine services SDK for Python 3.  It provides access
+to various API endpoints that were previously only available on the Python 2.7
+runtime.
+
+See the
+[documentation](https://cloud.google.com/appengine/docs/standard/python3/services/access) to learn more about using this SDK.
+
+We are working to support more App Engine bundled service APIs for Python 3. To sign up for the private preview, visit https://docs.google.com/forms/d/e/1FAIpQLSd1hFLA2UFSYwIMxm9ZI3pwigORZBgjJRH0qrnhtE7nvhhRCQ/viewform.
+
+## Using the SDK
+
+In your `requirements.txt` file, add the following:
+
+`appengine-python-standard>=1.0.0`
+
+In your app's `app.yaml`, add the following:
+
+`app_engine_apis: true`
+
+In your `main.py`, import google.appengine.api.wrap_wsgi_app and call it on your
+WSGI app object.
+
+Example for a standard WSGI app:
+
+~~~
+  import google.appengine.api
+
+  app = google.appengine.api.wrap_wsgi_app(app)
+~~~
+
+Example for a Flask app:
+
+~~~
+  import google.appengine.api
+  from flask import Flask, request
+
+  app = Flask(__name__)
+  app.wsgi_app = google.appengine.api.wrap_wsgi_app(app.wsgi_app)
+~~~
+
+Then deploy your app as usual, with `gcloud beta app deploy` (currently only the Beta version has the capability to enable these APIs). The following modules are available:
+- `google.appengine.api.app_identity`
+- `google.appengine.api.background_thread`
+- `google.appengine.api.blobstore`
+- `google.appengine.api.capabilities`
+- `google.appengine.api.croninfo`
+- `google.appengine.api.dispatchinfo`
+- `google.appengine.api.images`
+- `google.appengine.api.mail`
+- `google.appengine.api.memcache`
+- `google.appengine.api.modules`
+- `google.appengine.api.oauth`
+- `google.appengine.api.runtime`
+- `google.appengine.api.taskqueue`
+- `google.appengine.api.urlfetch`
+- `google.appengine.api.users`
+- `google.appengine.ext.blobstore`
+- `google.appengine.ext.db`
+- `google.appengine.ext.gql`
+- `google.appengine.ext.key_range`
+- `google.appengine.ext.ndb`
+- `google.appengine.ext.testbed`
+
+## Using the development version of the SDK
+
+To install the code from the `main` branch on GitHub rather than the latest
+version published to PyPI, put this in your `requirements.txt` file instead of
+`appengine-python-standard`:
+
+`https://github.com/GoogleCloudPlatform/appengine-python-standard/archive/main.tar.gz`
+
+
